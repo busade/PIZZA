@@ -4,7 +4,7 @@ from datetime import timedelta
 BASE_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 uri = os.getenv('DATABASE_URL')
 if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
+    uri = uri.replace("postgres://","postgresql://", 1)
 class Config:
     SECRET_KEY=config('SECRET_KEY', 'secret')
     SQLALCHEMY_TRACK_MODIFICATION = False
