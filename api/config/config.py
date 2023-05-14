@@ -2,7 +2,7 @@ import os
 from decouple import config
 from datetime import timedelta
 BASE_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
-uri = config('DATABASE_URL')
+uri = os.getenv('DATABASE_URL')
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 class Config:
