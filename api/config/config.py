@@ -26,6 +26,9 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = config('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATION= False
     DEBUG= config('DEBUG', cast= bool)
+    uri = config('DATABASE_URL')
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
 
 config_dict={
     'dev':DevConfig,
